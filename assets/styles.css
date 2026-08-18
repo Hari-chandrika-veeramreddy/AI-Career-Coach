@@ -192,6 +192,27 @@ footer { visibility: hidden; }
     font-size: 0.8rem;
 }
 
+/* Input Fields Styling */
+.stTextInput input, .stTextArea textarea, .stSelectbox div[data-baseweb="select"] {
+    background-color: rgba(17, 24, 39, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    color: #f8fafc !important;
+    border-radius: 10px !important;
+}
+
+.stTextInput input:focus, .stTextArea textarea:focus {
+    border-color: #6366f1 !important;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.3) !important;
+}
+
+/* File Uploader Custom Styling */
+[data-testid="stFileUploader"] {
+    background: rgba(17, 24, 39, 0.6);
+    border: 1.5px dashed rgba(99, 102, 241, 0.4);
+    border-radius: 12px;
+    padding: 1rem;
+}
+
 /* Streamlit Button & Form Customization */
 div.stButton > button:first-child, div.stFormSubmitButton > button:first-child {
     background: linear-gradient(135deg, #4f46e5 0%, #2563eb 100%);
@@ -209,6 +230,14 @@ div.stButton > button:first-child:hover, div.stFormSubmitButton > button:first-c
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(79, 70, 229, 0.5);
     background: linear-gradient(135deg, #4338ca 0%, #1d4ed8 100%);
+}
+
+/* Expanders Custom Styling */
+.stExpander {
+    background: rgba(17, 24, 39, 0.7) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 12px !important;
+    margin-bottom: 0.8rem !important;
 }
 
 /* Section Dividers */

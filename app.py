@@ -44,8 +44,12 @@ PAGES = [
 # Session State Initialization
 if "user" not in st.session_state:
     st.session_state["user"] = None
-if "nav_page" not in st.session_state:
-    st.session_state["nav_page"] = "🏠 Home"
+if "current_page" not in st.session_state:
+    st.session_state["current_page"] = "🏠 Home"
+
+def on_nav_change():
+    """Callback when sidebar radio option is selected."""
+    st.session_state["current_page"] = st.session_state["nav_radio_key"]
 
 def rehydrate_user_state(user_id):
     """Re-hydrate user session state directly from SQLite upon login."""
@@ -76,7 +80,7 @@ def render_sidebar():
         if st.sidebar.button("🚪 Logout", use_container_width=True):
             # Clear authentication session state without touching database
             st.session_state["user"] = None
-            st.session_state["nav_page"] = "🏠 Home"
+            st.session_state["current_page"] = "🏠 Home"
             st.session_state.pop("resume_skills", None)
             st.session_state.pop("resume_text", None)
             st.session_state.pop("job_match_result", None)
@@ -100,7 +104,7 @@ def render_sidebar():
                         if success:
                             st.session_state["user"] = user_data
                             rehydrate_user_state(user_data["id"])
-                            st.session_state["nav_page"] = "📊 Dashboard"
+                            st.session_state["current_page"] = "📊 Dashboard"
                             st.sidebar.success(msg)
                             st.rerun()
                         else:
@@ -128,29 +132,30 @@ def render_sidebar():
     st.sidebar.markdown("---")
     st.sidebar.subheader("Navigation")
     
-    current_idx = PAGES.index(st.session_state["nav_page"]) if st.session_state["nav_page"] in PAGES else 0
-    selected_page = st.sidebar.radio("Go to Page:", PAGES, index=current_idx, key="main_navigation_radio")
-    st.session_state["nav_page"] = selected_page
+    current_idx = PAGES.index(st.session_state["current_page"]) if st.session_state["current_page"] in PAGES else 0
+    st.sidebar.radio(
+        "Go to Page:",
+        PAGES,
+        index=current_idx,
+        key="nav_radio_key",
+        on_change=on_nav_change
+    )
 
 render_sidebar()
 
 # Main Page Routing
-curr_page = st.session_state["nav_page"]
+curr_page = st.session_state.get("current_page", "🏠 Home")
 
 if curr_page == "🏠 Home":
     st.markdown("""
     <div class="banner-card">
         <h1>🎓 AI Career Coach</h1>
-        <p>Adaptive Interview and Presentation Coach for Student Career Readiness</p>
+        <p>Adaptive AI Platform for Student Placement Interviews, Resume Alignment, & Presentation Readiness</p>
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown("""
-    ### Welcome to AI Career Coach!
-    Designed specifically for computer science and engineering students to prepare for tech campus placements, technical interviews, and project presentation hackathons.
-
-    #### Core Platform Features
-    """)
+    st.markdown("### 🚀 Launch Platform Modules")
+    st.write("Click any card below to launch an assessment module:")
 
     c1, c2, c3, c4 = st.columns(4)
     with c1:
@@ -160,6 +165,9 @@ if curr_page == "🏠 Home":
             <p>Parses PDF/DOCX resumes, extracts technical skills using spaCy, and calculates job match & career paths.</p>
         </div>
         """, unsafe_allow_html=True)
+        if st.button("Start Resume Analysis ➔", key="btn_goto_resume", use_container_width=True):
+            st.session_state["current_page"] = "📄 Resume & Career Analysis"
+            st.rerun()
 
     with c2:
         st.markdown("""
@@ -168,6 +176,9 @@ if curr_page == "🏠 Home":
             <p>Dynamically adapts question difficulty based on NLP answer evaluation and acoustic speech feedback.</p>
         </div>
         """, unsafe_allow_html=True)
+        if st.button("Start Mock Interview ➔", key="btn_goto_interview", use_container_width=True):
+            st.session_state["current_page"] = "🎯 Interview Coach"
+            st.rerun()
 
     with c3:
         st.markdown("""
@@ -176,6 +187,9 @@ if curr_page == "🏠 Home":
             <p>Evaluates PPT slide density with python-pptx and speech delivery metrics using Faster-Whisper & Librosa.</p>
         </div>
         """, unsafe_allow_html=True)
+        if st.button("Evaluate Presentation ➔", key="btn_goto_presentation", use_container_width=True):
+            st.session_state["current_page"] = "🎤 Presentation Coach"
+            st.rerun()
 
     with c4:
         st.markdown("""
@@ -184,6 +198,9 @@ if curr_page == "🏠 Home":
             <p>Visualizes personal Career Readiness, performance trends, and isolated user history from SQLite.</p>
         </div>
         """, unsafe_allow_html=True)
+        if st.button("View My Dashboard ➔", key="btn_goto_dashboard", use_container_width=True):
+            st.session_state["current_page"] = "📊 Dashboard"
+            st.rerun()
 
 elif curr_page == "📄 Resume & Career Analysis":
     render_resume_page()
