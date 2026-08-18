@@ -1,0 +1,220 @@
+/* Modern Ultra-Clean Glassmorphism Theme for AI Career Coach */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+html, body, [class*="css"]  {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Hide Default Streamlit Elements for Native App Look */
+#MainMenu { visibility: hidden; }
+footer { visibility: hidden; }
+[data-testid="stHeader"] { background: transparent !important; }
+
+/* Hide Default Multi-Page Sidebar Nav List */
+[data-testid="stSidebarNav"] {
+    display: none !important;
+}
+
+/* Custom App Background & Sidebar */
+.stApp {
+    background-color: #0b0f19;
+    color: #f8fafc;
+}
+
+[data-testid="stSidebar"] {
+    background: #111827 !important;
+    border-right: 1px solid #1f2937;
+}
+
+/* Glassmorphism Feature Cards */
+.coach-card {
+    background: rgba(17, 24, 39, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 1.6rem;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(16px);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.coach-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(99, 102, 241, 0.4);
+    box-shadow: 0 15px 35px -5px rgba(99, 102, 241, 0.25);
+}
+
+.coach-card h3 {
+    color: #f8fafc !important;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.01em;
+}
+
+.coach-card p {
+    color: #94a3b8 !important;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Hero Banner Cards with Glowing Gradients */
+.banner-card {
+    background: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
+    color: #ffffff;
+    border-radius: 18px;
+    padding: 2.2rem 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 12px 30px -5px rgba(79, 70, 229, 0.35);
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
+    pointer-events: none;
+}
+
+.banner-card h1 {
+    color: #ffffff !important;
+    font-size: 2.4rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.banner-card p {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+/* Vibrant Skill Badges & Tags */
+.skill-tag {
+    display: inline-block;
+    background: rgba(99, 102, 241, 0.15);
+    color: #818cf8;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: 30px;
+    margin-right: 0.45rem;
+    margin-bottom: 0.45rem;
+    border: 1px solid rgba(129, 140, 248, 0.3);
+    transition: all 0.2s ease;
+}
+
+.skill-tag:hover {
+    background: rgba(99, 102, 241, 0.25);
+    border-color: rgba(129, 140, 248, 0.6);
+    transform: translateY(-1px);
+}
+
+.skill-tag-missing {
+    background: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+    border: 1px solid rgba(248, 113, 113, 0.35);
+}
+
+.skill-tag-missing:hover {
+    background: rgba(239, 68, 68, 0.25);
+    border-color: rgba(248, 113, 113, 0.7);
+}
+
+/* Metric Display Cards */
+.metric-box {
+    background: rgba(17, 24, 39, 0.9);
+    border-top: 3px solid #6366f1;
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1.2rem 1.4rem;
+    border-radius: 14px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.metric-title {
+    font-size: 0.8rem;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+}
+
+.metric-value {
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: #f9fafb;
+    margin-top: 0.3rem;
+    letter-spacing: -0.02em;
+}
+
+/* Difficulty Pill Badges */
+.badge-easy {
+    background-color: rgba(16, 185, 129, 0.2);
+    color: #34d399;
+    border: 1px solid rgba(52, 211, 153, 0.3);
+    padding: 0.3rem 0.75rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+.badge-medium {
+    background-color: rgba(245, 158, 11, 0.2);
+    color: #fbbf24;
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    padding: 0.3rem 0.75rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+.badge-hard {
+    background-color: rgba(239, 68, 68, 0.2);
+    color: #f87171;
+    border: 1px solid rgba(248, 113, 113, 0.3);
+    padding: 0.3rem 0.75rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+/* Streamlit Button & Form Customization */
+div.stButton > button:first-child, div.stFormSubmitButton > button:first-child {
+    background: linear-gradient(135deg, #4f46e5 0%, #2563eb 100%);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    border-radius: 10px;
+    padding: 0.65rem 1.6rem;
+    border: none;
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+    transition: all 0.25s ease;
+}
+
+div.stButton > button:first-child:hover, div.stFormSubmitButton > button:first-child:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(79, 70, 229, 0.5);
+    background: linear-gradient(135deg, #4338ca 0%, #1d4ed8 100%);
+}
+
+/* Section Dividers */
+hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.05) 0%, rgba(99, 102, 241, 0.3) 50%, rgba(255,255,255,0.05) 100%);
+    margin: 2rem 0;
+}

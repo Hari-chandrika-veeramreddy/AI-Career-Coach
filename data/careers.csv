@@ -1,0 +1,13 @@
+career_name,required_skills,description
+Software Developer,"Python, Java, C++, Git, SQL, Data Structures",Develops software applications and system tools using core computer science principles.
+Data Analyst,"Python, SQL, Pandas, NumPy, Tableau, Power BI, Excel",Analyzes complex datasets to deliver actionable business insights and data visualizations.
+Data Scientist,"Python, Machine Learning, SQL, Pandas, NumPy, Scikit-learn",Builds predictive models and statistical algorithms to extract knowledge from structured and unstructured data.
+Machine Learning Engineer,"Python, Machine Learning, Deep Learning, TensorFlow, PyTorch, Scikit-learn",Designs and deploys scalable ML models into production environments.
+Web Developer,"JavaScript, HTML, CSS, React, Node.js, Git",Builds interactive and responsive web interfaces and user-facing web applications.
+Backend Developer,"Python, Django, Flask, FastAPI, Java, SQL, PostgreSQL","Designs and builds robust server-side application logic, database schemas, and microservices."
+Cyber Security Analyst,"Cyber Security, Networking, Ethical Hacking, Linux, Python","Protects systems and networks against cyber threats, vulnerabilities, and security incidents."
+Business Analyst,"SQL, Excel, Power BI, Tableau, Python","Translates business needs into actionable data strategies, documentation, and operational metrics."
+AI Engineer,"Python, Machine Learning, Deep Learning, NLP, OpenCV, PyTorch",Develops cutting-edge artificial intelligence and natural language processing applications.
+Data Engineer,"Python, SQL, PostgreSQL, MongoDB, AWS, Docker",Architects data pipelines and infrastructure for high-throughput data processing.
+Cloud Engineer,"AWS, Docker, Linux, Git, Cyber Security, Networking",Deploys and manages scalable cloud services and infrastructure environments.
+Frontend Developer,"HTML, CSS, JavaScript, React","Focuses on user interface development, accessibility, and modern web application UI/UX."
