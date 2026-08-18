@@ -23,39 +23,111 @@ footer { visibility: hidden; }
 }
 
 [data-testid="stSidebar"] {
-    background: #111827 !important;
-    border-right: 1px solid #1f2937;
+    background: #0f172a !important;
+    border-right: 1px solid #1e293b;
+}
+
+/* HIGH-CONTRAST SIDEBAR TEXT & RADIO BUTTON STYLING */
+[data-testid="stSidebar"] *, [data-testid="stSidebar"] p, [data-testid="stSidebar"] span, [data-testid="stSidebar"] label {
+    color: #ffffff !important;
+}
+
+[data-testid="stSidebar"] h1, [data-testid="stSidebar"] h2, [data-testid="stSidebar"] h3, [data-testid="stSidebar"] h4 {
+    color: #38bdf8 !important;
+    font-weight: 800 !important;
+}
+
+[data-testid="stSidebar"] div[data-testid="stMarkdownContainer"] p {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+}
+
+/* Sidebar Radio Buttons High Contrast Styling */
+[data-testid="stSidebar"] div[role="radiogroup"] label {
+    background: rgba(30, 41, 59, 0.7) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 8px !important;
+    padding: 0.4rem 0.8rem !important;
+    margin-bottom: 0.4rem !important;
+    transition: all 0.2s ease !important;
+}
+
+[data-testid="stSidebar"] div[role="radiogroup"] label:hover {
+    background: rgba(56, 189, 248, 0.2) !important;
+    border-color: #38bdf8 !important;
+}
+
+/* Sidebar Form Container Styling */
+[data-testid="stSidebar"] [data-testid="stForm"] {
+    background: linear-gradient(145deg, #1e1b4b 0%, #0f172a 100%) !important;
+    border: 1px solid rgba(129, 140, 248, 0.5) !important;
+    border-radius: 14px !important;
+    padding: 1.4rem !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6) !important;
+}
+
+[data-testid="stSidebar"] [data-testid="stForm"] label {
+    color: #e0e7ff !important;
+    font-weight: 700 !important;
+    font-size: 0.9rem !important;
+}
+
+[data-testid="stSidebar"] [data-testid="stForm"] input {
+    background-color: #0f172a !important;
+    border: 1px solid #6366f1 !important;
+    color: #ffffff !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+}
+
+[data-testid="stSidebar"] [data-testid="stForm"] input:focus {
+    border-color: #38bdf8 !important;
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.4) !important;
+}
+
+[data-testid="stSidebar"] [data-testid="stForm"] div.stFormSubmitButton > button:first-child {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    color: #ffffff !important;
+    font-weight: 800 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4) !important;
+    border: none !important;
+    width: 100% !important;
 }
 
 /* Glassmorphism Feature Cards */
 .coach-card {
-    background: rgba(17, 24, 39, 0.85);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(17, 24, 39, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 16px;
     padding: 1.6rem;
     margin-bottom: 1.25rem;
     box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(16px);
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    min-height: 180px;
 }
 
 .coach-card:hover {
     transform: translateY(-3px);
-    border-color: rgba(99, 102, 241, 0.4);
-    box-shadow: 0 15px 35px -5px rgba(99, 102, 241, 0.25);
+    border-color: rgba(99, 102, 241, 0.5);
+    box-shadow: 0 15px 35px -5px rgba(99, 102, 241, 0.3);
 }
 
 .coach-card h3 {
-    color: #f8fafc !important;
-    font-size: 1.3rem;
-    font-weight: 700;
+    color: #ffffff !important;
+    font-size: 1.25rem;
+    font-weight: 800;
     margin-top: 0;
     margin-bottom: 0.6rem;
     letter-spacing: -0.01em;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .coach-card p {
-    color: #94a3b8 !important;
+    color: #cbd5e1 !important;
     font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: 0;
@@ -73,17 +145,6 @@ footer { visibility: hidden; }
     overflow: hidden;
 }
 
-.banner-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 300px;
-    height: 100%;
-    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
-    pointer-events: none;
-}
-
 .banner-card h1 {
     color: #ffffff !important;
     font-size: 2.4rem;
@@ -94,60 +155,47 @@ footer { visibility: hidden; }
 }
 
 .banner-card p {
-    color: rgba(255, 255, 255, 0.9) !important;
+    color: rgba(255, 255, 255, 0.95) !important;
     font-size: 1.1rem;
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 0;
 }
 
 /* Vibrant Skill Badges & Tags */
 .skill-tag {
     display: inline-block;
-    background: rgba(99, 102, 241, 0.15);
-    color: #818cf8;
-    font-weight: 600;
+    background: rgba(99, 102, 241, 0.25);
+    color: #a5b4fc;
+    font-weight: 700;
     font-size: 0.85rem;
     padding: 0.4rem 0.85rem;
     border-radius: 30px;
     margin-right: 0.45rem;
     margin-bottom: 0.45rem;
-    border: 1px solid rgba(129, 140, 248, 0.3);
-    transition: all 0.2s ease;
-}
-
-.skill-tag:hover {
-    background: rgba(99, 102, 241, 0.25);
-    border-color: rgba(129, 140, 248, 0.6);
-    transform: translateY(-1px);
+    border: 1px solid rgba(165, 180, 252, 0.4);
 }
 
 .skill-tag-missing {
-    background: rgba(239, 68, 68, 0.15);
-    color: #f87171;
-    border: 1px solid rgba(248, 113, 113, 0.35);
-}
-
-.skill-tag-missing:hover {
     background: rgba(239, 68, 68, 0.25);
-    border-color: rgba(248, 113, 113, 0.7);
+    color: #fca5a5;
+    border: 1px solid rgba(252, 165, 165, 0.4);
 }
 
 /* Metric Display Cards */
 .metric-box {
-    background: rgba(17, 24, 39, 0.9);
+    background: rgba(17, 24, 39, 0.95);
     border-top: 3px solid #6366f1;
-    border-left: 1px solid rgba(255, 255, 255, 0.08);
-    border-right: 1px solid rgba(255, 255, 255, 0.08);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding: 1.2rem 1.4rem;
     border-radius: 14px;
     margin-bottom: 1rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .metric-title {
     font-size: 0.8rem;
-    color: #9ca3af;
+    color: #cbd5e1;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     font-weight: 700;
@@ -156,68 +204,15 @@ footer { visibility: hidden; }
 .metric-value {
     font-size: 1.9rem;
     font-weight: 800;
-    color: #f9fafb;
+    color: #ffffff;
     margin-top: 0.3rem;
-    letter-spacing: -0.02em;
-}
-
-/* Difficulty Pill Badges */
-.badge-easy {
-    background-color: rgba(16, 185, 129, 0.2);
-    color: #34d399;
-    border: 1px solid rgba(52, 211, 153, 0.3);
-    padding: 0.3rem 0.75rem;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 0.8rem;
-}
-
-.badge-medium {
-    background-color: rgba(245, 158, 11, 0.2);
-    color: #fbbf24;
-    border: 1px solid rgba(251, 191, 36, 0.3);
-    padding: 0.3rem 0.75rem;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 0.8rem;
-}
-
-.badge-hard {
-    background-color: rgba(239, 68, 68, 0.2);
-    color: #f87171;
-    border: 1px solid rgba(248, 113, 113, 0.3);
-    padding: 0.3rem 0.75rem;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 0.8rem;
-}
-
-/* Input Fields Styling */
-.stTextInput input, .stTextArea textarea, .stSelectbox div[data-baseweb="select"] {
-    background-color: rgba(17, 24, 39, 0.8) !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    color: #f8fafc !important;
-    border-radius: 10px !important;
-}
-
-.stTextInput input:focus, .stTextArea textarea:focus {
-    border-color: #6366f1 !important;
-    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.3) !important;
-}
-
-/* File Uploader Custom Styling */
-[data-testid="stFileUploader"] {
-    background: rgba(17, 24, 39, 0.6);
-    border: 1.5px dashed rgba(99, 102, 241, 0.4);
-    border-radius: 12px;
-    padding: 1rem;
 }
 
 /* Streamlit Button & Form Customization */
 div.stButton > button:first-child, div.stFormSubmitButton > button:first-child {
     background: linear-gradient(135deg, #4f46e5 0%, #2563eb 100%);
-    color: #ffffff;
-    font-weight: 700;
+    color: #ffffff !important;
+    font-weight: 800 !important;
     font-size: 0.95rem;
     border-radius: 10px;
     padding: 0.65rem 1.6rem;
@@ -230,14 +225,6 @@ div.stButton > button:first-child:hover, div.stFormSubmitButton > button:first-c
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(79, 70, 229, 0.5);
     background: linear-gradient(135deg, #4338ca 0%, #1d4ed8 100%);
-}
-
-/* Expanders Custom Styling */
-.stExpander {
-    background: rgba(17, 24, 39, 0.7) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    border-radius: 12px !important;
-    margin-bottom: 0.8rem !important;
 }
 
 /* Section Dividers */

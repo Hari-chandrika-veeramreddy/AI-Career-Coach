@@ -157,8 +157,9 @@ if curr_page == "🏠 Home":
     st.markdown("### 🚀 Launch Platform Modules")
     st.write("Click any card below to launch an assessment module:")
 
-    c1, c2, c3, c4 = st.columns(4)
-    with c1:
+    # 2x2 Responsive Grid to prevent squeezed text on mobile devices
+    row1_col1, row1_col2 = st.columns(2)
+    with row1_col1:
         st.markdown("""
         <div class="coach-card">
             <h3>📄 Resume & Career Analysis</h3>
@@ -169,7 +170,7 @@ if curr_page == "🏠 Home":
             st.session_state["current_page"] = "📄 Resume & Career Analysis"
             st.rerun()
 
-    with c2:
+    with row1_col2:
         st.markdown("""
         <div class="coach-card">
             <h3>🎯 Interview Coach</h3>
@@ -180,7 +181,10 @@ if curr_page == "🏠 Home":
             st.session_state["current_page"] = "🎯 Interview Coach"
             st.rerun()
 
-    with c3:
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    row2_col1, row2_col2 = st.columns(2)
+    with row2_col1:
         st.markdown("""
         <div class="coach-card">
             <h3>🎤 Presentation Coach</h3>
@@ -191,7 +195,7 @@ if curr_page == "🏠 Home":
             st.session_state["current_page"] = "🎤 Presentation Coach"
             st.rerun()
 
-    with c4:
+    with row2_col2:
         st.markdown("""
         <div class="coach-card">
             <h3>📊 Dashboard & History</h3>
